@@ -1,0 +1,13 @@
+go-lc3
+Copyright 2026 go-lc3 contributors
+
+This project is a Go adaptation of Google's liblc3:
+https://github.com/google/liblc3
+Upstream source revision: 48bbd3eacd36e99a57317a0a4867002e0b09e183
+Copyright 2022 Google LLC
+Licensed under the Apache License, Version 2.0.
+
+The codec algorithms and numerical tables have been translated and modified
+for Go. Public APIs, checked buffers, file handling, command-line tools, and
+Go test infrastructure are provided by this project. This project is not
+an official Google or Bluetooth SIG implementation.

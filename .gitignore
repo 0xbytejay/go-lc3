@@ -1,0 +1,9 @@
+.DS_Store
+/bin/
+/coverage.out
+*.test
+*.exe
+*.prof
+
+__pycache__/
+*.py[cod]
