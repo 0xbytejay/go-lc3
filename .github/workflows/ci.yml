@@ -33,3 +33,21 @@ jobs:
       - run: go test -race ./...
       - run: go test -run '^$' -fuzz '^FuzzDecode$' -fuzztime 20s -parallel 2 .
       - run: go test -run '^$' -fuzz '^FuzzEncode$' -fuzztime 20s -parallel 2 .
+  simd-arm64:
+    runs-on: ubuntu-24.04-arm
+    env:
+      GOEXPERIMENT: simd
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.x'
+          cache: false
+      - run: go test ./...
+        env:
+          CGO_ENABLED: '0'
+      - run: go test -tags purego ./...
+        env:
+          CGO_ENABLED: '0'
+      - run: go vet ./...
+      - run: go test -race ./...

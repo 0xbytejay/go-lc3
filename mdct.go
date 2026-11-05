@@ -20,10 +20,14 @@ package lc3
 
 import "math"
 
-func fft_5(x, y []lc3_complex, n int) {
+func fft_5_scalar(x, y []lc3_complex, n int) {
+	fft5ScalarRange(x, y, n, 0, n)
+}
+
+func fft5ScalarRange(x, y []lc3_complex, n, start, end int) {
 	const cos1, cos2 float32 = 0.3090169944, -0.8090169944
 	const sin1, sin2 float32 = -0.9510565163, -0.5877852523
-	for i := 0; i < n; i++ {
+	for i := start; i < end; i++ {
 		a, b, c, d := x[i+n], x[i+2*n], x[i+3*n], x[i+4*n]
 		s14 := lc3_complex{float32(a.re + d.re), float32(a.im + d.im)}
 		d14 := lc3_complex{float32(a.re - d.re), float32(a.im - d.im)}
@@ -43,10 +47,14 @@ func fft_5(x, y []lc3_complex, n int) {
 	}
 }
 
-func fft_bf3(t *lc3_fft_bf3_twiddles, x, y []lc3_complex, n int) {
+func fft_bf3_scalar(t *lc3_fft_bf3_twiddles, x, y []lc3_complex, n int) {
+	fftBf3ScalarRange(t, x, y, n, 0, t.n3)
+}
+
+func fftBf3ScalarRange(t *lc3_fft_bf3_twiddles, x, y []lc3_complex, n, start, end int) {
 	n3 := t.n3
 	for i := 0; i < n; i++ {
-		for j := 0; j < n3; j++ {
+		for j := start; j < end; j++ {
 			z0, z1, z2 := x[i*n3+j], x[n*n3+i*n3+j], x[2*n*n3+i*n3+j]
 			for q := 0; q < 3; q++ {
 				w := t.t[q*n3+j]
@@ -57,10 +65,14 @@ func fft_bf3(t *lc3_fft_bf3_twiddles, x, y []lc3_complex, n int) {
 		}
 	}
 }
-func fft_bf2(t *lc3_fft_bf2_twiddles, x, y []lc3_complex, n int) {
+func fft_bf2_scalar(t *lc3_fft_bf2_twiddles, x, y []lc3_complex, n int) {
+	fftBf2ScalarRange(t, x, y, n, 0, t.n2)
+}
+
+func fftBf2ScalarRange(t *lc3_fft_bf2_twiddles, x, y []lc3_complex, n, start, end int) {
 	n2 := t.n2
 	for i := 0; i < n; i++ {
-		for j := 0; j < n2; j++ {
+		for j := start; j < end; j++ {
 			z0, z1, w := x[i*n2+j], x[n*n2+i*n2+j], t.t[j]
 			k := i*2*n2 + j
 			y[k].re = float32(float32(z0.re+float32(z1.re*w.re)) - float32(z1.im*w.im))

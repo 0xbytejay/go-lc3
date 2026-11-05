@@ -176,7 +176,7 @@ func ltpf_filter_hp50(s *lc3_ltpf_hp50_state, xn int32) int32 {
 
 // x includes history before xoff; samples before the present frame participate
 // in each phase's convolution, as in the reference resampling filter.
-func ltpf_resample(p, step, w int, h []int16, hp *lc3_ltpf_hp50_state, x []int16, xoff int, y []int16, n int) {
+func ltpf_resample_scalar(p, step, w int, h []int16, hp *lc3_ltpf_hp50_state, x []int16, xoff int, y []int16, n int) {
 	xoff -= w - 1
 	for i := 0; i < step*n; i += step {
 		hi := (i % p) * w
@@ -213,7 +213,7 @@ func ltpf_resample_6k4(x []int16, xoff int, y []int16, n int) {
 		y[i] = int16(v >> 16)
 	}
 }
-func ltpf_dot(a, b []int16, n int) float32 {
+func ltpf_dot_scalar(a, b []int16, n int) float32 {
 	var v int64
 	for i := 0; i < (n>>4)*16; i++ {
 		v += int64(int32(a[i]) * int32(b[i]))

@@ -22,6 +22,19 @@ The target is the pinned scalar profile. Different C compilers, options, SIMD
 paths, or liblc3 versions can produce different rounding. In particular, this
 is not a claim that every upstream build has the same PCM CRC.
 
+An optional ARM64 NEON backend is selected only with Go 1.27 or later,
+`GOEXPERIMENT=simd`, and without the `purego` build tag. It uses Go intrinsics
+under the same numerical contract as the scalar backend. Floating-point
+multiply, add, and subtract stay separate; independent outputs are processed
+in parallel. Integer dot products widen before accumulation where required,
+and resampling retains modulo-int32 arithmetic and serial filter history.
+This backend does not adopt the upstream NEON implementation's fused arithmetic.
+
+Kernel differential tests compare exact output bits and state to the scalar
+implementation, including full-scale integer overflow cases, short lengths,
+tail elements, offsets, signed zero, and subnormals. The existing transform,
+complete-codec, Appendix C, and file goldens apply to both backends unchanged.
+
 ## Checked-in differential tests
 
 | Area | Cases | Comparison |
@@ -69,6 +82,14 @@ go vet ./...
 go test -run '^$' -fuzz '^FuzzDecode$' -fuzztime 30s -parallel 2 .
 go test -run '^$' -fuzz '^FuzzEncode$' -fuzztime 30s -parallel 2 .
 go test -run '^$' -bench . -benchmem .
+```
+
+Optional ARM64 backend checks with Go 1.27 or later:
+
+```sh
+GOEXPERIMENT=simd CGO_ENABLED=0 go test ./...
+GOEXPERIMENT=simd CGO_ENABLED=0 go test -tags purego ./...
+GOEXPERIMENT=simd go test -race ./...
 ```
 
 The initial suite was executed on macOS arm64 using Go 1.23.12 and Go 1.27.2,

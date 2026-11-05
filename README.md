@@ -36,6 +36,27 @@ Requires Go 1.23 or later.
 go get github.com/0xbytejay/go-lc3
 ```
 
+## Optional ARM64 NEON backend
+
+On ARM64 with Go 1.27 or later, an experimental SIMD backend can be enabled:
+
+```sh
+GOEXPERIMENT=simd CGO_ENABLED=0 go test ./...
+GOEXPERIMENT=simd CGO_ENABLED=0 go build ./...
+```
+
+It uses Go's `simd/archsimd` intrinsics and requires no C library, cgo, or
+handwritten assembly. The SIMD API is experimental and requires opting in at
+build time. Normal builds, older Go versions, and other architectures retain
+the scalar backend. The `purego` build tag forces the scalar backend even when
+the SIMD experiment is enabled.
+
+The optimized kernels preserve the same scalar-reference numerical profile:
+independent float32 operations remain separate, without introducing fused
+multiply-add or changing floating-point accumulation order. NEON support does
+not imply matching the upstream FMA-based NEON path's rounding. See
+[VALIDATION.md](VALIDATION.md) for the compatibility contract.
+
 ## Encode and decode a frame
 
 ```go
