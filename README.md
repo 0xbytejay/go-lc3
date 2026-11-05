@@ -1,4 +1,6 @@
-# go-lc3
+<p align="center">
+  <img src="logo.svg" width="480" height="144" alt="go-lc3">
+</p>
 
 A pure Go implementation of the **LC3 and LC3plus audio codecs**, adapted from
 [Google's liblc3](https://github.com/google/liblc3).
@@ -145,7 +147,10 @@ SIMD path, which can produce different floating-point rounding.
 
 ## License
 
-[Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for upstream attribution.
+[Apache License 2.0](LICENSE) for the codec source. See [NOTICE](NOTICE) for
+upstream attribution.
+
+Logo artwork: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 Contributions and reproducible bug reports are welcome. Please include the
 configuration, frame sequence, expected behavior, and a minimal synthetic input.

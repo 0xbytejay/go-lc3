@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="192" viewBox="0 0 640 192" fill="none" role="img" aria-labelledby="logo-title logo-description">
+  <title id="logo-title">go-lc3</title>
+  <desc id="logo-description">The Go Gopher wearing headphones and a three-bar audio waveform badge, paired with a custom geometric go-lc3 wordmark.</desc>
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <cc:Work rdf:about="">
+        <dc:title>go-lc3 Gopher logo</dc:title>
+        <dc:description>Adapted with headphones, a three-bar audio waveform, and a custom go-lc3 wordmark.</dc:description>
+        <cc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <style>
+    .wordmark { stroke: #102F40; }
+    @media (prefers-color-scheme: dark) {
+      .wordmark { stroke: #E9FBFC; }
+    }
+  </style>
+  <g transform="translate(36 32) scale(.8)"><rect width="160" height="160" rx="40" fill="#E8F9FB"/>
+    <g fill="#65D2DE" stroke="#102F40" stroke-width="2.5">
+      <circle cx="36" cy="60" r="11"/>
+      <circle cx="124" cy="60" r="11"/>
+    </g>
+    <g fill="#102F40"><circle cx="36" cy="60" r="4.5"/><circle cx="124" cy="60" r="4.5"/></g>
+    <path d="M27 85V76C27 43 49 23 80 23S133 43 133 76V85" fill="none" stroke="#102F40" stroke-width="9" stroke-linecap="round"/>
+    <path d="M38 149C35 132 35 107 35 88C35 55 49 34 80 34S125 55 125 88C125 107 125 132 122 149Q80 157 38 149Z" fill="#65D2DE" stroke="#102F40" stroke-width="2.5" stroke-linejoin="round"/>
+    <g fill="#fff" stroke="#102F40" stroke-width="2.5">
+      <ellipse cx="59" cy="76" rx="20" ry="22"/>
+      <ellipse cx="101" cy="76" rx="20" ry="22"/>
+    </g>
+    <g fill="#102F40"><circle cx="55" cy="79" r="7.5"/><circle cx="97" cy="79" r="7.5"/></g>
+    <g fill="#fff"><circle cx="57.5" cy="76.5" r="2.2"/><circle cx="99.5" cy="76.5" r="2.2"/></g>
+    <g fill="#fff" stroke="#102F40" stroke-width="2">
+      <rect x="70" y="106" width="10" height="20" rx="4"/>
+      <rect x="80" y="106" width="10" height="20" rx="4"/>
+    </g>
+    <path d="M64 104C64 98 71 95 80 95S96 98 96 104C96 112 89 113 80 108C71 113 64 112 64 104Z" fill="#F2D3AA" stroke="#102F40" stroke-width="2.5"/>
+    <ellipse cx="80" cy="98" rx="9" ry="5.5" fill="#102F40"/>
+    <g fill="#102F40"><rect x="24" y="77" width="15" height="33" rx="7.5"/><rect x="121" y="77" width="15" height="33" rx="7.5"/></g>
+    <g stroke="#38DFC3" stroke-width="3" stroke-linecap="round"><path d="M29 86v15"/><path d="M131 86v15"/></g>
+    <rect x="57" y="129" width="46" height="23" rx="8" fill="#102F40"/>
+    <g stroke="#38DFC3" stroke-width="3.2" stroke-linecap="round"><path d="M69 138v5"/><path d="M80 134v13"/><path d="M91 136v9"/></g></g>
+  <g class="wordmark" transform="translate(210 43) scale(1.06)" fill="none" stroke="#102F40" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M48 48c0-15-8-25-22-25S2 33 2 48s10 25 24 25 22-10 22-25Zm0-24v56c0 13-8 20-22 20H12" />
+      <path d="M126 48c0-16-10-25-26-25S74 32 74 48s10 25 26 25 26-9 26-25Z" />
+      <path d="M187 5v57c0 7 4 11 11 11h7" />
+      <path d="M271 31c-6-6-13-8-23-8-16 0-26 10-26 25s10 25 26 25c10 0 18-3 23-9" />
+      <path d="M300 5h24c15 0 25 7 25 17s-7 17-20 17h-11m11 0c14 0 24 6 24 17s-11 18-27 18h-26" />
+      <path d="M148 49h16" stroke="#00B8D9" />
+  </g>
+
+
+</svg>
